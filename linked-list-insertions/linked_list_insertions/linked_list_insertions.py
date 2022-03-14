@@ -3,6 +3,9 @@
 
 
 
+from tkinter import N
+
+
 class Node :                                                     
   def __init__(self,value,next):
      self.value=value
@@ -15,6 +18,10 @@ class LinkedList:
 
 
   def append (self,value):
+
+    """
+   append Function to add a new node with the given value to the end of the list
+    """
     if self.head is None:
       self.head=Node(value,None)
       return
@@ -26,10 +33,15 @@ class LinkedList:
       return
       
       
+      
         
 
   def insert_before(self,value,new_value):
     
+    """
+    adds a new node with the given new value immediately before the first  
+    node that has the value specified
+    """
     if self.head.value == value:
       node=Node(new_value,self.head)
       self.head=node
@@ -44,10 +56,17 @@ class LinkedList:
         node=Node(new_value,current.next)
         node.next=current.next
         current.next=node
-
         return
-# [,5,6,1,,2,3,4]
+
+
+
+
   def insert_after(self,value,new_value):
+
+    """
+    adds a new node with the given new value immediately after the
+     first node that has the value specified
+    """
     current=self.head
     while current:
       if current.value==value:
