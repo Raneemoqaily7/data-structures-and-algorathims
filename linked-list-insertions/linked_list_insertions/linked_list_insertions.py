@@ -1,8 +1,4 @@
 
-
-
-
-
 from tkinter import N
 
 
