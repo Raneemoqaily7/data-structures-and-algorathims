@@ -1,12 +1,13 @@
 class Node :                                                     
-    def __init__(self,value,next):
+    def __init__(self,value,next=None):
         self.value=value
         self.next=next
 
                              
 class LinkedList:
-    def __init__(self):
+    def __init__(self,next=None):
         self.head=None
+        self.next=next
 
     def push(self,new_value):
         new_node=Node(new_value)
@@ -29,11 +30,12 @@ class LinkedList:
 
 if __name__ == "__main__":
     list=LinkedList()
+    
     list.push(1)
     list.push(2)
     list.push(3)
     list.push(4)
-    list.push(5)
+    print(list)
     list.getKthNode(list,3)
 
 
