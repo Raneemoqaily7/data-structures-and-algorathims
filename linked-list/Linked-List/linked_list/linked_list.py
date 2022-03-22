@@ -51,12 +51,14 @@ class LinkedList:
 if __name__=="__main__":
     ll=LinkedList()
     ll.head=Node(9)
+    
   
     ll.x=Node(8)
     ll.inserts(4)
     
     
     ll.inserts(7)
+    ll.inserts(4)
     print(ll.includes(8))
     print(ll)
     
