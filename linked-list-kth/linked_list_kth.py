@@ -51,6 +51,7 @@ class LinkedList:
         return count
 
 #[1,2,3,4] 
+
     def reverse(self):
         
 
@@ -71,18 +72,33 @@ class LinkedList:
         
     
 
-#[1,2,3,4,5]
-    # def getKthNode(self,head,position):
-    #     count=0
-    #     if (head ):
-    #         if count == position:
-    #             print (head.value)
+# [1,2,3,4,5]
+    def getKthNode(self,k):
+        """
+        function to get  kth from end
+        argument: a number, k, as a parameter.
+        Return the node’s value that is k places from the tail of the linked list.
 
-    #         else:
-    #             list.getKthNode(head.next, position-1)
+        """
+        
+        l = self.get_length()
+        if k > l or k<0 :
+            raise Exception ("Invalid Index")
 
-    #     else :
-    #         print("index doesnt exist")
+        else :
+            count =0
+            current =self.head
+            while current is not None:
+                if count==l-k-1 :
+                    return current.value
+                current = current.next
+                count +=1
+    
+
+
+
+
+     
 
     
 if __name__ == "__main__":
@@ -95,7 +111,8 @@ if __name__ == "__main__":
     
     print(list)
 
-    print(list.reverse()) 
+    
+    print(list.getKthNode(1)) 
     print(list)
 
 
