@@ -195,7 +195,7 @@ class pseudo_queue:
             """
             dequeue function takes no argument 
 
-            dequeue function Eetracts a value from the PseudoQueue, using a first-in, first-out approach.h
+            dequeue  Eetracts a value from the PseudoQueue, using a first-in, first-out approach.h
             
             """
             while self.s1 is not None:
