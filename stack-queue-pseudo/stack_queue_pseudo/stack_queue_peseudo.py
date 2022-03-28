@@ -13,10 +13,9 @@ class Stack:
         self.top =None
         
 
-class Queue:
-    def __init__(self):
-        self.front =None
-        self.rear =None 
+
+
+
     
 
     def push (self,new_value):
@@ -75,7 +74,25 @@ class Queue:
         
         return False
 
-#1,2,3,4
+
+    def __str__(self):
+                if self.top is None:
+                    return "Empty Stack"
+
+                
+                else  :
+                    current=self.top
+                    output =""
+                    while current is not None :
+                        output+=f'{current.value} -->'
+                        
+                        current=current.next
+                    return output
+class Queue:
+    def __init__(self):
+        self.front =None
+        self.rear =None 
+
     def enqueue(self ,new_value):
         """
         enqueue function takes new value as argument 
@@ -140,39 +157,11 @@ class Queue:
 
         return False 
 
-
-
-
-            
-
-
-
-        
-            
-
-
-
-
-    def __str__(self):
-        if self.top is None:
-            return "Empty Stack"
-
-        
-        else  :
-            current=self.top
-            output =""
-            while current is not None :
-                output+=f'{current.value} --'
-                
-                current=current.next
-            return output
-
-    
     def __str__(self):
         if self.front is None:
             return "Empty Qeue"
 
-        
+
         else  :
             current=self.front
             output =""
@@ -181,6 +170,56 @@ class Queue:
                 
                 current=current.next
             return output
+
+class pseudo_queue:
+
+        def __init__(self):
+            self.s1=Stack()
+            self.s2=Stack()
+
+
+        def enqueue(self,x):
+            """
+            enqueue function takes value as Argument
+
+            and Inserts value into the PseudoQueue, using a first-in, first-out approach
+
+            """
+            
+            self.s1.push(x)
+            #    self.s2.push(self.s1.pop())
+
+
+
+        def dequeue (self):
+            """
+            dequeue function takes no argument 
+
+            dequeue function Eetracts a value from the PseudoQueue, using a first-in, first-out approach.h
+            
+            """
+            while self.s1 is not None:
+                self.s2.push(self.s1.pop())
+
+            if not self.s1.is_empty():
+               return self.s1.pop()
+
+            
+
+            if self.s2.is_empty()  and self.s1.is_empty(): 
+                raise Exception ("pseudo_queue is Empty ")
+
+           
+
+
+
+
+                
+        
+
+
+    
+
 
     
         
@@ -196,26 +235,25 @@ class Queue:
 if __name__=="__main__":
 
     # stack=Stack()
+    # stack.push("HELLO")
+    # stack.push("b")
     # stack.push(1)
     # stack.push(2)
     # stack.push(3)
-    # print(stack)
-    # print(stack.pop())
+    # stack.push(4)
+    # # print(stack.is_empty())
+    # # print(stack.pop())
     # print(stack)
     # print(stack.peek())
-
     queue=Queue()
-
-    queue.enqueue(1)
-    queue.enqueue(2)
-    queue.enqueue(3)
-    queue.dequeue()
+    queue.enqueue("hello")
+    queue.enqueue("python")
+    queue.enqueue("world")
+    # queue.enqueue(2)
+    # print(queue.dequeue())
     print(queue.peek())
 
     print(queue)
 
 
    
-
-
-    

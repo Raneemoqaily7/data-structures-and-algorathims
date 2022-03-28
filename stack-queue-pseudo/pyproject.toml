@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "stack-and-queue"
+name = "stack-queue-pseudo"
 version = "0.1.0"
 description = ""
 authors = ["Raneemoqaily7 <raneemoqaily7@gmail.com>"]
