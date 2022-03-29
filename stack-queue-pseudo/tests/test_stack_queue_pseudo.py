@@ -1,6 +1,6 @@
 from inspect import stack
 import queue
-from stack_queue_pseudo.stack_queue_peseudo import Stack,Node,Queue,pseudo_queue
+from stack_queue_pseudo.stack_queue_peseudo import Stack,Node,Queue,Pseudo_queue
 import pytest
 
 def test_push_one():
@@ -165,6 +165,56 @@ def test_queue_is_empty_two():
     actual =queue.is_empty()
     excepted = False
     assert actual==excepted
+
+
+def test_pesud_enqueu_one():
+    pesudo=Pseudo_queue()
+    pesudo.enqueue(5)
+    actual =pesudo.__str__()
+    expcted ="5 -->"
+    assert actual == expcted
+
+def test_pesud_enqueu_two():
+    pesudo=Pseudo_queue()
+    pesudo.enqueue(20)
+    pesudo.enqueue(15)
+    pesudo.enqueue(10)
+    pesudo.enqueue(5)
+    actual =pesudo.__str__()
+    expcted ="5 -->10 -->15 -->20 -->"
+    assert actual == expcted
+
+def test_pesudo_dequeu_one() :
+    pesudo=Pseudo_queue()
+    pesudo.enqueue(20)
+    pesudo.enqueue(15)
+    pesudo.enqueue(10)
+    pesudo.enqueue(5)
+    actual =pesudo.dequeue()
+    expected=20
+    assert actual == expected
+
+def test_pesudo_dequeu_two() :
+    pesudo=Pseudo_queue()
+    pesudo.enqueue(20)
+    pesudo.enqueue(15)
+    pesudo.enqueue(10)
+    pesudo.enqueue(5)
+    pesudo.dequeue()
+    actual =pesudo.dequeue()
+    expected=15
+    assert actual == expected
+
+def test_pesudo_dequeu_three() :
+    pesudo=Pseudo_queue()
+    pesudo.enqueue(15)
+    pesudo.enqueue(10)
+    pesudo.enqueue(5)
+    actual =pesudo.dequeue()
+    expected=15
+    assert actual == expected
+
+
 
 
 

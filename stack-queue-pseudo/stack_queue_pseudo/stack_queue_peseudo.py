@@ -171,7 +171,7 @@ class Queue:
                 current=current.next
             return output
 
-class pseudo_queue:
+class Pseudo_queue:
 
         def __init__(self):
             self.s1=Stack()
@@ -183,10 +183,12 @@ class pseudo_queue:
             enqueue function takes value as Argument
 
             and Inserts value into the PseudoQueue, using a first-in, first-out approach
-
             """
             
             self.s1.push(x)
+
+
+
             #    self.s2.push(self.s1.pop())
 
 
@@ -198,16 +200,36 @@ class pseudo_queue:
             dequeue  Eetracts a value from the PseudoQueue, using a first-in, first-out approach.h
             
             """
-            while self.s1 is not None:
+
+            while not self.s1.is_empty():
                 self.s2.push(self.s1.pop())
 
-            if not self.s1.is_empty():
-               return self.s1.pop()
+            return self.s2.pop()
+            # while self.s1 is not None:
+            #     self.s2.push(self.s1.pop())
+
+            # if not self.s1.is_empty():
+            #    return self.s1.pop()
 
             
 
-            if self.s2.is_empty()  and self.s1.is_empty(): 
-                raise Exception ("pseudo_queue is Empty ")
+            # if self.s2.is_empty()  and self.s1.is_empty(): 
+            #     raise Exception ("pseudo_queue is Empty ")
+        
+        def __str__(self):
+                    if self.s1.top is None:
+                        return "Empty Stack"
+
+                    
+                    else  :
+                        current=self.s1.top
+                        output =""
+                        while current is not None :
+                            output+=f'{current.value} -->'
+                            
+                            current=current.next
+                        return output
+        
 
            
 
@@ -245,15 +267,21 @@ if __name__=="__main__":
     # # print(stack.pop())
     # print(stack)
     # print(stack.peek())
-    queue=Queue()
-    queue.enqueue("hello")
-    queue.enqueue("python")
-    queue.enqueue("world")
-    # queue.enqueue(2)
-    # print(queue.dequeue())
-    print(queue.peek())
+    # queue=Queue()
+    # queue.enqueue("hello")
+    # queue.enqueue("python")
+    # queue.enqueue("world")
+    # # queue.enqueue(2)
+    # # print(queue.dequeue())
+    # print(queue.peek())
 
-    print(queue)
-
+    # print(queue)
+    pesudo=Pseudo_queue()
+    pesudo.enqueue(20)
+    pesudo.enqueue(15)
+    pesudo.enqueue(10)
+    pesudo.enqueue(5)
+    print(pesudo.dequeue())
+    print(pesudo)
 
    
