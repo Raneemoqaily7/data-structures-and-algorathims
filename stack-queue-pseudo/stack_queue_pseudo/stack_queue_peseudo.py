@@ -205,16 +205,7 @@ class Pseudo_queue:
                 self.s2.push(self.s1.pop())
 
             return self.s2.pop()
-            # while self.s1 is not None:
-            #     self.s2.push(self.s1.pop())
-
-            # if not self.s1.is_empty():
-            #    return self.s1.pop()
-
-            
-
-            # if self.s2.is_empty()  and self.s1.is_empty(): 
-            #     raise Exception ("pseudo_queue is Empty ")
+           
         
         def __str__(self):
                     if self.s1.top is None:
@@ -256,23 +247,23 @@ class Pseudo_queue:
 
 if __name__=="__main__":
 
-    # stack=Stack()
-    # stack.push("HELLO")
-    # stack.push("b")
-    # stack.push(1)
-    # stack.push(2)
-    # stack.push(3)
-    # stack.push(4)
-    # # print(stack.is_empty())
-    # # print(stack.pop())
+    stack=Stack()
+    stack.push("HELLO")
+    stack.push("b")
+    stack.push(1)
+    stack.push(2)
+    stack.push(3)
+    stack.push(4)
+    # print(stack.is_empty())
+    # print(stack.pop())
     # print(stack)
     # print(stack.peek())
-    # queue=Queue()
-    # queue.enqueue("hello")
-    # queue.enqueue("python")
-    # queue.enqueue("world")
-    # # queue.enqueue(2)
-    # # print(queue.dequeue())
+    queue=Queue()
+    queue.enqueue("hello")
+    queue.enqueue("python")
+    queue.enqueue("world")
+    # queue.enqueue(2)
+    # print(queue.dequeue())
     # print(queue.peek())
 
     # print(queue)
