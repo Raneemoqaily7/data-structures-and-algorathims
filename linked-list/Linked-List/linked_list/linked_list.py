@@ -8,7 +8,15 @@ class LinkedList:
     def __init__(self):
         self.head=None
 
+
     def inserts (self,value):
+        """
+        Insert method take an Argument : value and 
+
+        return nothing to add a new node with that value to the head
+
+         of the list with an O(1) Time performance.
+        """
         node = Node(value)
         node.next=self.head
         self.head=node
@@ -32,11 +40,24 @@ class LinkedList:
 
 
     def to_string(self)  :
-        return self.__str__()  
+     """
+     string method that take Arguments: none and 
+     Returns: a string representing all the values in the Linked List, formatted as:
+
+     "[ a ] -> [ b ] -> [ c ] -> NULL"
+      """
+
+     return self.__str__()  
 
 
 
     def includes (self,value):
+      """
+      includes  method that take  Arguments: value and Returns: Boolean
+     
+     Indicates whether that value exists as a Node`s value somewhere within the list.
+
+    """
       if value is None:
           raise TypeError("Value Is Not included")
       current =self.head
