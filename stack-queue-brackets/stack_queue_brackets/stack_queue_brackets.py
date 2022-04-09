@@ -49,7 +49,7 @@ def validate_brackets(string):
 
 
 if __name__ == '__main__':
-    print(validate_brackets( ")(" ))
+    print(validate_brackets( "()" ))
     print(validate_brackets("))((a+b}{"))
     print(validate_brackets("((a+b))"))
     print(validate_brackets("((a+g))"))
