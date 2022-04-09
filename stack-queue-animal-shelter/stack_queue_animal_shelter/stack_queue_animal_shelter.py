@@ -1,134 +1,65 @@
+from collections import deque
+
+class AnimalShelter:
+    def __init__(self):
+        self.buffer = deque()
 
 
+    def enqueu(self,animal):
+        
+        while animal =="dog" or animal == "cat":
+            self.buffer.appendleft(animal)
+            return
 
-# # class Animal:
-# #     def __init__(self,animal=None,next=None):
-# #         self.animal =animal
-# #         self.next=next
-
-# class Node :
-#     def __init__(self,animal=None):
-#       self.value =animal
-      
-
-
-# class Animal:
-#     def __init__(self):
-#         self.top =None
-
-    
-   
-
-
-# # class AnimalShelter:
-# #     def __init__(self) :
-# #         self.animal =None
-
-# class AnimalShelter:
-#     def __init__(self) :
-#         self.catQ =Animal()
-#         self.DogQ=Animal()
-#         self.top =None
-    
-#     def push(self,animal):
-#         animal =Node(animal)
-#         animal.next=self.top
-#         self.top =animal
+        else : 
+           
+                return "this shilter only dogs or cats"
        
-#     def enqueue(self,animal):
-#         count1=0
-#         count2=0
-#         while animal == "cat" :
-#            self.catQ.push(animal)
-#            count1 +=1
-          
-#         while animal == "dog":
-#            self.DogQat.push(animal)
-#            count2 +=1
-#         return
 
-    
-    # def __str__(self):
-    #     if self.top is None:
-    #         return "Empty Qeue"
+    def deque(self,pref):
+        
+        while pref =="dog" or pref == "cat":
+            return self.buffer.pop()
 
-
-    #     else  :
-    #         current=self.top
-    #         output =""
-    #         while current is not None :
-    #             output+=f'{current.value}   '
-                
-    #             current=current.next
-           
-    #         return output
-
-
-#     # def enqueue(self,animal):
-#     #     animal =Animal(animal)
-#     #     if self.animal is None:
-#     #        self.animal =animal
-#     #        return
-
-#     #     else :
-#     #         current =self.animal
-#     #         while current.next is not None:
-#     #             current =current.next
-#     #         current.next =animal
-#     #         return
-
-
-          
-           
-
-
-# #     def dequeue (self ,pre):
-# #         pass
-
-#     # def __str__(self):
-#     #     if self.animal is None:
-#     #         return "Empty Qeue"
-
-
-#     #     else  :
-#     #         current=self.animal
-#     #         output =""
-#     #         while current is not None :
-#     #             output+=f'{current.animal} --'
-                
-#     #             current=current.next
-#     #         return output
-
-
+        else:
         
 
+            return "null"
+                
+         
 
-# if __name__=="__main__":
-# #     animal=AnimalShelter()
-# #     animal.enqueue("cat")
-# #     animal.enqueue("cat")
-# #     animal.enqueue("dog")
-# #     print (animal)
+        
+       
+            
+
+    def is_empty (self):
+        return len(self.buffer)==0
+
+    def size (self):
+        return len(self.buffer)
 
 
-#  animal =AnimalShelter() 
-#  animal.push("cat")
-#  animal.push("dog")
-#  animal.push("dog")
-#  print(animal)
-
-
-# s=[]
-# s.append(1)
-# s.append(2)
-# s.append(3)
-# print(s)
-# print(s.pop())
-# print(s.pop())
-
-# print(s.pop())
-# print(s.pop())
+    def __str__(self):
+        
+            return f'{self.buffer}'
 
 
 
 
+if __name__ == "__main__":
+    animal =AnimalShelter()
+    animal.enqueu("dog")
+    animal.enqueu("cat")
+    animal.enqueu("cat")
+    animal.enqueu("dog")
+    print(animal.enqueu("fish"))
+    print(animal.deque("fish"))
+    
+
+
+    print(animal)
+
+
+    
+
+    
