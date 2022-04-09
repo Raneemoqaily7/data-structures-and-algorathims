@@ -1,379 +1,57 @@
-from inspect import stack
-import queue
-
-
-
-class Node :
-    def __init__(self,value=None,next=None):
-      self.value =value
-      self.next=next
-
+from collections import deque
 
 class Stack:
     def __init__(self):
-        self.top =None
-        
+        self.container = deque()
 
+    def push(self, val):
+        self.container.append(val)
 
+    def pop(self):
+        return self.container.pop()
 
-
-    
-
-    def push (self,new_value):
-        """
-        push function takes new_value as argument 
-        add a node with the new value of the top of the stack
-        """
-        node =Node(new_value)
-        node.next=self.top
-        self.top =node
-
-    def pop (self) :
-
-        """
-        pop function takes no argument 
-        returns the value of node from the top of the stack
-         and Removes the node from the top 
-         and raise Exception when stack is Empty
-        
-        """
-        if self.top is None:
-            raise Exception ("Empty Stack")
-
-        #[1,2,3]
-        else:
-            temp = self.top
-            self.top =self.top.next
-            temp.next=None
-            return temp.value
-            
-        
     def peek(self):
-
-        """
-        peek function takes no argument
-        return the value of the top of the stack
-        raise exception when stack is empty 
-        """
-        if self.top is None :
-            raise Exception ("Empty Stack")
-
-        else :
-            temp =self.top
-            return temp.value
+        return self.container[-1]
 
     def is_empty(self):
+        return len(self.container) == 0
 
-        """
-        is empty function takes no argument
-        return True if the stack is empty 
-        otherwise return false 
-        
-        """
-        if self.top ==None:
-            return True
-        
-        return False
+    def size(self):
+        return len(self.container)
 
+def is_match(ch1, ch2):
+    match_dict = {
+        ')': '(',
+        ']': '[',
+        '}': '{'
+    }
+    return match_dict[ch1] == ch2
+
+
+def validate_brackets(string):
+    """
+    function called validate brackets with Arguments: string and Return: boolean
     
-
-
-        
-        # Round_Brackets = "()"
-        # Square_Brackets = "[]"
-        # Curly_Brackets = "{}"
-        # current =self.top
-        # while current :
-        #     if current.value == Round_Brackets or current.value ==Square_Brackets or current.value == Curly_Brackets:
-        #         print(True)  
-
-        #     else :
-        #         print(False ) 
-        #     current = current.next
-
-
-
-
-    def __str__(self):
-                if self.top is None:
-                    return "Empty Stack"
-
-                
-                else  :
-                    current=self.top
-                    output =""
-                    while current is not None :
-                        output+=f'{current.value} -->'
-                        
-                        current=current.next
-                    return output
-class Queue:
-    def __init__(self):
-        self.front =None
-        self.rear =None 
-
-    def enqueue(self ,new_value):
-        """
-        enqueue function takes new value as argument 
-        and add node with the new value to the rear of the queue 
-        
-        """
-        node = Node (new_value)
-        if self.front is None:
-            self.front= node
-            return
-
-        current=self.front
-        while current.next is not None:
-
-            current =current.next
-        current.next =node
-        return
-
+    this function representing whether or not the brackets in the string are balanced
     
+    """
+    stack = Stack()
+    for ch in string:
+        if ch=='(' or ch=='{' or ch == '[':
+            stack.push(ch)
+        if ch==')' or ch=='}' or ch == ']':
+            if stack.size()==0:
+                return False
+            if not is_match(ch,stack.pop()):
+                return False
 
-#1,2,3,4
-            
-    def dequeue(self):
-        """
-        dequeue function takes non argument 
-        returns the value from node from the front of the queue
-         and Removes the node from the front of the queue
-         and raise Exception when queue is Empty
-        
-        """
-        if self.front is None:
-            raise Exception ("Invalid Dequeue , Queue is Empty")
-
-        else:
-            temp =self.front
-            self.front =self.front.next
-            return temp.value
+    return stack.size()==0
 
 
-    def peek (self):
-        """
-        peek function takes no argument
-        return the value of the front of queue 
-        raise exception when queue is empty 
-        """
-        if self.front is None :
-            raise Exception ("Queue is Empty")
-
-        else : 
-            temp = self.front
-            return temp.value
-
-    def is_empty(self):
-        """
-        is empty function takes no argument
-        return True if the queue is empty 
-        otherwise return false 
-        
-        """
-        if self.front is None :
-            return True 
-
-        return False 
-
-    def validate_brackets(self ,string):
-        brackets = {
-                            "}": "{",
-                            "]": "[",
-                            ")": "("
-                        }
-        seq=list(string)
-        
-        print(seq)
-        for i in seq:
-            if i in brackets:
-                queue=Queue()
-                queue.enqueue(i)
-                current = self.front
-                count=0
-               
-                
-                for x in brackets:
-                    if  current.value ==x :
-                        for y in brackets.values():
-                            if current.value==y:
-                               
-                                    return True 
-                            else :
-                                    return False 
-
-           
-        
-        
-        # if current.value == brackets.keys[j] :
-        #     if current.value ==brackets.values:
-        #         count+=1
-        #         j+=1
-        #         current = current.next
-           
-            
-        # if count % 2 :
-        #     return True
-        # else :
-        #      return False
-       
-
-         
-
-
-
-
-
-        # if i in seq == brackets.key[j]:
-                
-        #         if i in seq == brackets.value[j]:
-        #             count+=1
-        #             j+=1
-        #             i+=1
-        #     if count %2 == 0 :
-        #         return True 
-        #     elif count %2 ==1 :
-        #         return False 
-        # i=0
-        # j=0
-        
-        # for i in seq:
-        #     if i != brackets.keys or i != brackets.values:
-        #         queue.dequeue()
-
-        #         current= current.next
-
-           
-           
-
-                
-
-
-            
-            
-            
-
-
-    def __str__(self):
-        if self.front is None:
-            return "Empty Qeue"
-
-
-        else  :
-            current=self.front
-            output =""
-            while current is not None :
-                output+=f'{current.value} --'
-                
-                current=current.next
-            return output
-
-class Pseudo_queue:
-
-        def __init__(self):
-            self.s1=Stack()
-            self.s2=Stack()
-
-
-        def enqueue(self,x):
-            """
-            enqueue function takes value as Argument
-
-            and Inserts value into the PseudoQueue, using a first-in, first-out approach
-            """
-            
-            self.s1.push(x)
-
-
-
-            #    self.s2.push(self.s1.pop())
-
-
-
-        def dequeue (self):
-            """
-            dequeue function takes no argument 
-
-            dequeue  Eetracts a value from the PseudoQueue, using a first-in, first-out approach.h
-            
-            """
-
-            while not self.s1.is_empty():
-                self.s2.push(self.s1.pop())
-
-            return self.s2.pop()
-           
-        
-        def __str__(self):
-                    if self.s1.top is None:
-                        return "Empty Stack"
-
-                    
-                    else  :
-                        current=self.s1.top
-                        output =""
-                        while current is not None :
-                            output+=f'{current.value} -->'
-                            
-                            current=current.next
-                        return output
-        
-
-           
-
-
-
-
-                
-        
-
-
-    
-
-
-    
-        
-
-
-
-
-
-
-
-
-
-if __name__=="__main__":
-
-    # stack=Stack()
-    # stack.push("HELLO")
-    # stack.push("b")
-    # stack.push("{}")
-    # stack.push(2)
-    # stack.push(3)
-    # stack.push(4)
-    
-    # print(stack.is_empty())
-    # print(stack.pop())
-    # print(stack)
-    # # print(stack.peek())
-    queue=Queue()
-    queue.enqueue("a")
-    queue.enqueue("n")
-    print(queue.validate_brackets("hello}"))
-    # queue.enqueue("hello")
-    # queue.enqueue("python")
-    # queue.enqueue("world")
-    # # queue.enqueue(2)
-    # # print(queue.dequeue())
-    # # print(queue.peek())
-
-    # # print(queue)
-    # pesudo=Pseudo_queue()
-    # pesudo.enqueue(20)
-    # pesudo.enqueue(15)
-    # pesudo.enqueue(10)
-    # pesudo.enqueue(5)
-    # print(pesudo.dequeue())
-    # print(pesudo)
-
-   
+if __name__ == '__main__':
+    print(validate_brackets( ")(" ))
+    print(validate_brackets("))((a+b}{"))
+    print(validate_brackets("((a+b))"))
+    print(validate_brackets("((a+g))"))
+    print(validate_brackets("))"))
+    print(validate_brackets("[a+b]*(x+2y)*{gg+kk}"))
