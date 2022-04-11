@@ -36,6 +36,10 @@ class Binary_Tree:
 
         return elements
 
+    def tree_max(self,elements):
+        pass
+
+
 
     def pre_order (self):
         elements = []
@@ -87,6 +91,7 @@ if __name__ == "__main__":
     print(numbers_tree.in_order())
     print(numbers_tree.pre_order())
     print(numbers_tree.post_order())
+    print (numbers_tree.tree_max(numbers))
 
 
 
