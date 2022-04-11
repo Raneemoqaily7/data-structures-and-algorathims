@@ -36,8 +36,8 @@ class Binary_Tree:
 
         return elements
 
-    def tree_max(self,elements):
-        pass
+    
+
 
 
 
@@ -84,14 +84,33 @@ def build_tree(elements):
 
     return root 
 
+def findMax(root):
+ 
+    # Base case
+    if (root == None):
+        return float('-inf')
+ 
+    # Return maximum of 3 values:
+    # 1) Root's data 2) Max in Left Subtree
+    # 3) Max in right subtree
+    res = root.data
+    lres = findMax(root.left)
+    rres = findMax(root.right)
+    if (lres > res):
+        res = lres
+    if (rres > res):
+        res = rres
+    return res
 
 if __name__ == "__main__":
     numbers = [2,4,5,1,2,8,345,2,6]
     numbers_tree = build_tree(numbers)
+    
     print(numbers_tree.in_order())
     print(numbers_tree.pre_order())
     print(numbers_tree.post_order())
     print (numbers_tree.tree_max(numbers))
+    print(findMax(numbers_tree))
 
 
 
