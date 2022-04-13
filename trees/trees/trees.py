@@ -1,207 +1,140 @@
 
-class Binary_Tree:
-    def __init__(self,value):
-        self.value = value
-        self.left = None 
-        self.right = None 
+
+
+class Node :
+    def __init__(self , value) :
+        self.value =value
+        self.left =None
+        self.right = None
+
+class BinaryTree:
+    def __init__(self):
+        self.root =None
+
+
+    def pre_order(self):
+        """
+        input == > None
+        doing == > Traverse the tree by looking to root then left of root , then right of root
+        Output == > print values of nodes Tree with pre_order ==>(root , left , right)
+        """
+        print ("-----pre_order-----")  # just to seperate between the outputs of the methods
+        node =self.root
+        list1 =[]
+        def _walk(node):
+        
+            
+            list1.append(node.value)
+
+            if node.left :
+                _walk(node.left)
+            
+            if node.right :
+                _walk(node.right)
+
+        _walk(node)
+        return list1
+        
+
+    def in_order(self):
+        """
+        Input : None
+        doing: Traverse the tree by by looking (left ,root , right)
+        Output :Print the nodes value of the tree in this order(left , root , right)
+        """
+        print ("-----in_order-----")  # just to seperate between the outputs of the methods
+        list2=[]
+        node = self.root
+        def _build(node):
+            if node.left :
+                 _build(node.left)
+            
+            list2.append (node.value)
+
+            if node.right:
+                _build(node.right) 
+
+            
+                 
+        _build(node) 
+        return list2 
+       
+
+    def post_order(self):
+        """
+        Input : None
+        doing : Traverse the tree by looking left , right then to the  root
+        Output ==> print the nodes values of tre in post order (left , right , node)
+        """
+        print ("-----post_order-----")  # just to seperate between the outputs of the methods
+        list3=[]
+        node = self.root
+        def _traverse(node):
+            if node.left:
+                _traverse(node.left)
+            if node.right:
+                _traverse(node.right)
+
+            list3.append(node.value)
+            
+
+        _traverse(node)
+        return list3
+
+class Binary_Search_Tree(BinaryTree):
+    # def __init__(self, fname, lname, year):
+    # super().__init__(fname, lname)
+    # self.graduationyear = year
+    
+
 
     def add_child (self,value):
-        if value == self.value :
-            return
-        if value < self.value :
-            if self.left :
-                self.left.add_child(value)
+        
+        
+
+        if value < .value :
+            if node.left :
+                node.left.add_child(value)
 
             else :
-                self.left = Binary_Tree(value)
+                node.left = value
 
-        if value > self.value :
-            if self.right :
-                self.right.add_child(value)
+        elif value > node.value :
+            if node.right :
+                node.right.add_child(value)
 
             else :
-                self.right = Binary_Tree(value)
-
-    def in_order (self):
-        elements = []
-        #traverse left subtree
-        if self.left:
-            elements+=self.left.in_order()
-
-        # base node 
-        elements.append(self.value)
-
-        if self.right:
-            elements+=self.right.in_order()
-
-        return elements
-
-
-    def pre_order (self):
-        elements = []
-
-         # base node 
-        elements.append(self.value)
-        #traverse left subtree
-        if self.left:
-            elements+=self.left.in_order()
-
-       
-
-        if self.right:
-            elements+=self.right.in_order()
-
-        return elements
-
-    def post_order (self):
-        elements = []
-
-         
-        #traverse left subtree
-        if self.left:
-            elements+=self.left.in_order()
-
-       
-
-        if self.right:
-            elements+=self.right.in_order()
-
-        # base node 
-        elements.append(self.value)
-
-        return elements
-
-
-
-def build_tree(elements):
-    root =Binary_Tree(elements[0])
-    for i in range(1,len(elements)):
-        root.add_child(elements[i])
-
-    return root 
-
-
-if __name__ == "__main__":
-    numbers = [2,4,5,1,2,8,345,2,6]
-    numbers_tree = build_tree(numbers)
-    print(numbers_tree.in_order())
-    print(numbers_tree.pre_order())
-    print(numbers_tree.post_order())
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-# class TreeNode:
-#     def __init__(self,value):
-#         self.value=value
-#         self.children =[]
-#         self.parent = None
-
-
-#     def add_children(self,child):
-#         child.parent =self
-#         self.children.append(child)
-
-#     def get_level(self):
-#         level = 0
-#         p = self.parent
-#         while p:
-#             level +=1
-#             p = p.parent
-
-#         return level
-
-
-
-#     def  __str__(self):
-#         # if self.parent :
-            
-#         #     spaces = " " * self.get_level()
-#         #     print(spaces + "|--"+ self.value)
-#         # else :
-#         #     spaces = " " * self.get_level()
-#         #     print(spaces + self.value)
-#         spaces = " " * self.get_level()*3
-#         prefix = spaces + "|__" if self.parent else ""
-#         print (prefix + self.value)
+                node.right = value
+  
         
-        
-#         if self.children:
+# def build_tree(elements):
+#     root =Binary_Search_Tree()
+#     for i in range(1,len(elements)):
+#         root.add_child(elements[i])
 
-#             for child in self.children:
-#                 child.__str__()
-            
-        
-
-
-# def build_tree():
-#     root = TreeNode("Electronics")
-
-#     laptop = TreeNode("Laptop")
-#     laptop.add_children(TreeNode("Dell1"))
-#     laptop.add_children(TreeNode("Dell2"))
-
-#     Tv =TreeNode("Tv")
-#     Tv.add_children(TreeNode("Tv1"))
-#     Tv.add_children(TreeNode("Tv2"))
-
-#     root.add_children(laptop)
-#     root.add_children(Tv)
-
-#     return root
+#     return root 
 
 
-# if __name__=="__main__":
+if __name__ =="__main__":
+    node1=Node(1)
+    node2=Node(2)
+    node1.left=node2
     
-#     root=build_tree()
-#     root.get_level()
-#     root.__str__()
+    node3=Node(3)
+    node1.right=node3
+    node4=Node(4)
+    node2.left=node4
 
- 
+    # numbers = [2,4,5,1,2,8,345,2,6]
+    # numbers_tree = build_tree(numbers)
+    
+
+    tree = BinaryTree()
+    tree.root=node1
+    print(tree.in_order())
+    # print(tree.pre_order())
+    # print(tree.post_order())
+
+    tree1=Binary_Search_Tree()
+    tree1.root=node1
+    tree1.add_child(7)
