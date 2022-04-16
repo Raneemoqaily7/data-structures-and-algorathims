@@ -87,22 +87,29 @@ class BinaryTree :
         Output :number(the max value in the tree)
         
         """
-        current =self.root
-        max = 0
-        while current :
-            if current.right is not None:
-                if current.right.value > max :
-                    max = current.right.value
-                    current=current.right
-                    return
-            elif current.left is not None:
-                if current.left.value>max:
-                    max = current.left.value
-                    current =current.left
-                    return
-                 
+       
+        
+        
+        node =self.root
+        maximum = node.value
+        def _traverse(node):
+            nonlocal maximum
+            if node :
+               max1=node.value
 
-            return max
+            if max1>maximum:
+                maximum =max1
+           
+            if node.left:
+                _traverse(node.left)
+
+            
+
+            if node.right:
+                _traverse(node.right)
+
+        _traverse(node)
+        return maximum
 
 
 
@@ -178,13 +185,17 @@ class BinarySearchTree(BinaryTree):
 
 
 if __name__=="__main__":
-    node1=Node(4)
+    node1=Node(1000)
     node2=Node(2)
     node3 =Node(8)
     node4=Node(9)
     node1.left=node2
     node1.right=node3
     node3.right=node4
+    node4=Node(89)
+    node3.left =node4
+    node5=Node(990)
+    node2.left =node5
 
     
     tree=BinaryTree()

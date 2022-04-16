@@ -22,3 +22,17 @@ def test_post_order():
     expected = [1, 4, 5, 6, 8, 345, 2]
     assert actual == expected
 
+
+def test_max_value():
+    
+    node1=Node(1000)
+    node2=Node(2)
+    node3 =Node(8)
+    node4=Node(9)
+    node1.left=node2
+    node1.right=node3
+    node3.right=node4
+    node4=Node(89)
+    node3.left =node4
+    node5=Node(990)
+    node2.left =node5
