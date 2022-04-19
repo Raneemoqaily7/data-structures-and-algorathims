@@ -192,19 +192,20 @@ class BinaryTree :
             return maximum
 
 
-    def breadth_first (self ):
-        if self.root is None :
+def breadth_first (tree ):
+       
+        if tree.root is None :
             raise Exception ("Tree is Empty")
 
 
-        elif self.root.left is None and self.root.right is None :
-            return self.root.value
+        elif tree.root.left is None and tree.root.right is None :
+            return tree.root.value
 
 
         else :
 
             queue =Queue()
-            root =self.root
+            root =tree.root
             queue.enqueue(root)
             list1 =[]
             
@@ -320,7 +321,8 @@ if __name__=="__main__":
     tree.root=node1
     print(tree.pre_order())
     print(tree.find_maximum_value())
-    print(tree.breadth_first())
+    
+    print(breadth_first(tree))
     # print(tree.pre_order())
     # print(tree.post_order())
     tree1 = BinarySearchTree()

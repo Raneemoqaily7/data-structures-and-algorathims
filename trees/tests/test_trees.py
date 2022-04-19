@@ -1,4 +1,4 @@
-from trees.trees import QNode,Node,BinaryTree
+from trees.trees import QNode,Node,BinaryTree,breadth_first
 import pytest
 
 def test_breadth_first_one():
@@ -17,7 +17,7 @@ def test_breadth_first_one():
     node3.left =node7
     tree=BinaryTree()
     tree.root=node1
-    actual =tree.breadth_first()
+    actual =breadth_first(tree)
     expected =[4, 2, 8, 89, 990, 29, 9]
     assert actual ==expected
 
@@ -31,7 +31,7 @@ def test_breadth_first_two():
    
     tree=BinaryTree()
     tree.root=node1
-    actual =tree.breadth_first()
+    actual =breadth_first(tree)
     expected =[4, 2, 8]
     assert actual ==expected
 
@@ -39,7 +39,7 @@ def test_breadth_first_three():
     node1=Node(4)
     tree=BinaryTree()
     tree.root=node1
-    actual =tree.breadth_first()
+    actual =breadth_first(tree)
     expected =4
     assert actual == expected
 
