@@ -323,7 +323,7 @@ if __name__=="__main__":
     print(tree.find_maximum_value())
     
     print(breadth_first(tree))
-    # print(tree.pre_order())
+    print(tree.pre_order())
     # print(tree.post_order())
     tree1 = BinarySearchTree()
     tree1.root = node1 
