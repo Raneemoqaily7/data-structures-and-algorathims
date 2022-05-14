@@ -192,6 +192,9 @@ class BinaryTree :
             return maximum
 
 
+    
+
+
 def breadth_first (tree ):
        
         if tree.root is None :
@@ -222,8 +225,50 @@ def breadth_first (tree ):
             return list1
 
 
+def fizz_buzz_tree(tree):
+    """
+    traversing through the tree and .Set the values of nodes according to the FizzBuzz tree
+    """
+
+    if tree.root is None :
+            raise Exception ("Tree is Empty")
 
 
+    else :
+
+            queue =Queue()
+            root =tree.root
+            queue.enqueue(root)
+            list1 =[]
+            list2=[]
+            
+            while not queue.is_empty():
+                frontNode =queue.dequeue()
+                list1.append(frontNode.value)
+                
+
+            
+
+                if frontNode.left:
+                    queue.enqueue(frontNode.left)
+                if frontNode.right:
+                    queue.enqueue(frontNode.right)
+                if frontNode.value %3==0 and frontNode.value%5==0:
+                    frontNode.value ="FizzBuzz"
+                elif frontNode.value%5==0:
+                      frontNode.value = "Buzz"
+                elif frontNode.value%3==0:
+                     frontNode.value = "Fizz"
+                else:
+                   frontNode.value = str(frontNode.value)
+
+                list2.append(frontNode.value)
+            return list2
+                
+
+            
+
+    
       
 
 
@@ -288,6 +333,43 @@ class BinarySearchTree(BinaryTree):
 
         return False
 
+    def sum_odd_values(self):
+        """
+        Input : None
+        doing :Find the sum of all the odd numbers in a binary search tree. 
+        Output :number(the odd summation values in the tree)
+        
+        """
+        if self.root is  None:
+
+            raise Exception("tree is Empty !!")
+        
+        elif self.root.right is None and self.root.left is None:
+            if self.root.value %2 ==1 :
+              return self.root.value
+            else :
+                return "null"
+
+        else:
+            node =self.root
+            sum = 0
+            def _traverse(node):
+                nonlocal sum
+                if node.value %2 ==1:
+                    sum =sum + node.value
+
+            
+                if node.left:
+                    _traverse(node.left)
+
+                
+
+                if node.right:
+                    _traverse(node.right)
+
+            _traverse(node)
+            return sum
+
 
 
             
@@ -300,46 +382,53 @@ class BinarySearchTree(BinaryTree):
 
 
 if __name__=="__main__":
-    node1=Node(4)
-    node2=Node(2)
-    node3 =Node(8)
-    node4=Node(9)
-    node5=Node(89)
-    node6=Node(990)
-    node7=Node(29)
-    node1.left=node2
-    node1.right=node3
-    node2.left =node5
-    node2.right=node6
-    node3.right=node4
-    node3.left =node7
+    node1=Node(15)
+    # node2=Node(2)
+    # node3 =Node(8)
+    # node4=Node(9)
+    # node5=Node(89)
+    # node6=Node(990)
+    # node7=Node(29)
+    # node8=Node(3)
+    # node1.left=node2
+    # node1.right=node3
+    # node2.left =node5
+    # node2.right=node6
+    # node3.right=node4
+    # node3.left =node7
+    # node5.left =node8
     
     
 
     
     tree=BinaryTree()
     tree.root=node1
-    print(tree.pre_order())
-    print(tree.find_maximum_value())
+    print (fizz_buzz_tree(tree))
+    # print(tree.pre_order())
+    # print(tree.find_maximum_value())
     
-    print(breadth_first(tree))
-    print(tree.pre_order())
+    # print(breadth_first(tree))
+    # print(tree.pre_order())
+    
     # print(tree.post_order())
-    tree1 = BinarySearchTree()
-    tree1.root = node1 
-    node1=Node(4)
+    node1=Node(7)
     node2=Node(2)
     node3 =Node(8)
     node4=Node(9)
     node2.left=node4
     node1.left=node2
     node1.right=node3
+    tree1 = BinarySearchTree()
+    tree1.root = node1 
     
-    tree1.Add(9)
-    print(tree1.post_order())
+    
+    # tree1.Add(9)
+    # print(tree1.sum_odd_values())
+    
+    # print(tree1.post_order())
 #    4
 # 2      8     ==> 
-    print(tree1.Contains(9))
+    # print(tree1.Contains(9))
 
             
 
