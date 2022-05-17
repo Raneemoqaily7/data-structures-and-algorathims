@@ -1,4 +1,4 @@
-from trees.trees import QNode,Node,BinaryTree,breadth_first,fizz_buzz_tree
+from trees.trees import Node,BinaryTree,breadth_first,fizz_buzz_tree
 import pytest
 def test_fizz_buzz_one():
     node1=Node(4)
@@ -18,8 +18,8 @@ def test_fizz_buzz_one():
     node5.left =node8
     tree=BinaryTree()
     tree.root=node1
-    actual =fizz_buzz_tree(tree)
-    expected =['4', '2', '8', '89', 'FizzBuzz', '29', 'Fizz', 'Fizz']
+    actual =fizz_buzz_tree(tree).in_order()
+    expected =['Fizz', '89', '2', 'FizzBuzz', '4', '29', '8', 'Fizz']
     assert actual ==expected
 
 
@@ -27,7 +27,7 @@ def test_fizz_buzz_two():
     node1=Node(15)
     tree=BinaryTree()
     tree.root=node1
-    actual =fizz_buzz_tree(tree)
+    actual =fizz_buzz_tree(tree).in_order()
     expected =['FizzBuzz']
     assert actual ==expected
 

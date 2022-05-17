@@ -9,7 +9,7 @@ If the value is not divisible by 3 or 5, simply turn the number into a String.
 
 ## Whiteboard Process
 <!-- Embedded whiteboard image -->
-![FizzBuzz tree whiteboard](./fizzbuzztree.png)
+![FizzBuzz tree whiteboard](./fizzbuzz.png)
 
 ## Approach & Efficiency
 <!-- What approach did you take? Why? What is the Big O space/time for this approach? -->

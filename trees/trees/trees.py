@@ -236,34 +236,32 @@ def fizz_buzz_tree(tree):
 
     else :
 
-            queue =Queue()
-            root =tree.root
-            queue.enqueue(root)
-            list1 =[]
-            list2=[]
+          
             
-            while not queue.is_empty():
-                frontNode =queue.dequeue()
-                list1.append(frontNode.value)
-                
-
+            newTree = BinaryTree()
+            newTree.root = tree.root 
             
+            def _traverse(node):
+        
+                if node.left:
+                      _traverse(node.left)
 
-                if frontNode.left:
-                    queue.enqueue(frontNode.left)
-                if frontNode.right:
-                    queue.enqueue(frontNode.right)
-                if frontNode.value %3==0 and frontNode.value%5==0:
-                    frontNode.value ="FizzBuzz"
-                elif frontNode.value%5==0:
-                      frontNode.value = "Buzz"
-                elif frontNode.value%3==0:
-                     frontNode.value = "Fizz"
+                if node.right:
+                       _traverse(node.right)
+
+                if node.value%3==0 and node.value%5==0:
+                      node.value = "FizzBuzz"
+                elif node.value%5==0:
+                      node.value = "Buzz"
+                elif node.value%3==0:
+                    node.value = "Fizz"
                 else:
-                   frontNode.value = str(frontNode.value)
+                     node.value = str(node.value)
 
-                list2.append(frontNode.value)
-            return list2
+            _traverse(newTree.root)
+
+            return newTree
+           
                 
 
             
@@ -382,28 +380,28 @@ class BinarySearchTree(BinaryTree):
 
 
 if __name__=="__main__":
-    node1=Node(15)
-    # node2=Node(2)
-    # node3 =Node(8)
-    # node4=Node(9)
-    # node5=Node(89)
-    # node6=Node(990)
-    # node7=Node(29)
-    # node8=Node(3)
-    # node1.left=node2
-    # node1.right=node3
-    # node2.left =node5
-    # node2.right=node6
-    # node3.right=node4
-    # node3.left =node7
-    # node5.left =node8
+    node1=Node(3)
+    node2=Node(2)
+    node3 =Node(8)
+    node4=Node(9)
+    node5=Node(3)
+    node6=Node(990)
+    node7=Node(29)
+    node8=Node(3)
+    node1.left=node2
+    node1.right=node3
+    node2.left =node5
+    node2.right=node6
+    node3.right=node4
+    node3.left =node7
+    node5.left =node8
     
     
 
     
     tree=BinaryTree()
     tree.root=node1
-    print (fizz_buzz_tree(tree))
+    print (fizz_buzz_tree(tree).in_order())
     # print(tree.pre_order())
     # print(tree.find_maximum_value())
     
@@ -411,15 +409,15 @@ if __name__=="__main__":
     # print(tree.pre_order())
     
     # print(tree.post_order())
-    node1=Node(7)
-    node2=Node(2)
-    node3 =Node(8)
-    node4=Node(9)
-    node2.left=node4
-    node1.left=node2
-    node1.right=node3
-    tree1 = BinarySearchTree()
-    tree1.root = node1 
+    # node1=Node(7)
+    # node2=Node(2)
+    # node3 =Node(8)
+    # node4=Node(9)
+    # node2.left=node4
+    # node1.left=node2
+    # node1.right=node3
+    # tree1 = BinarySearchTree()
+    # tree1.root = node1 
     
     
     # tree1.Add(9)
