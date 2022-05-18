@@ -35,7 +35,7 @@ ALGORITHM Merge(left, right, arr)
        set remaining entries in arr to remaining values in right
     else
        set remaining entries in arr to remaining values in left
-    ```
+```
 
 ## Whiteboard Process
 ![WhiteBoard](./imgs/mergeWhiteBoard.png)
@@ -54,3 +54,5 @@ BLOG : [blog](./BLOG.md)
 Code: [Code](./merge_sort/merge.py)
 
 Test :[Test](./tests/test_merge_sort.py)
+
+PR : [PR](https://github.com/Raneemoqaily7/data-structures-and-algorathims/pull/18)
