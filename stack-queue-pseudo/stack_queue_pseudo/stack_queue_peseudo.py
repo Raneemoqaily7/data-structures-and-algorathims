@@ -1,5 +1,6 @@
 from inspect import stack
 import queue
+from traceback import StackSummary
 
 
 class Node :
@@ -73,6 +74,24 @@ class Stack:
             return True
         
         return False
+
+    def get_max(self):
+        maxStack =Stack()
+        stack =Stack()
+        top =self.top.value
+        
+        maxStack.push(stack.pop())
+        while not stack.is_empty():
+            if top >maxStack.peek():
+              max =self.top.value
+              maxStack.pop()
+              maxStack.push(stack.pop())
+            elif top<maxStack.peek():
+                stack.pop()
+
+        return max
+
+
 
 
     def __str__(self):
@@ -248,12 +267,14 @@ class Pseudo_queue:
 if __name__=="__main__":
 
     stack=Stack()
-    stack.push("HELLO")
-    stack.push("b")
+    # stack.push("HELLO")
+    # stack.push("b")
     stack.push(1)
     stack.push(2)
     stack.push(3)
     stack.push(4)
+    maxstack=Stack()
+    print (maxstack.get_max())
     # print(stack.is_empty())
     # print(stack.pop())
     # print(stack)
@@ -272,7 +293,7 @@ if __name__=="__main__":
     pesudo.enqueue(15)
     pesudo.enqueue(10)
     pesudo.enqueue(5)
-    print(pesudo.dequeue())
-    print(pesudo)
+    # print(pesudo.dequeue())
+    # print(pesudo)
 
    

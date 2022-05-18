@@ -8,7 +8,8 @@
 |linked-list-kth|[linkedlist-kth](./linked-list-kth/)|
 |stack and queue|[stack and queue implementation](./stack-and-queue/)|
 |Pseudo_queue|[Pseudo_queue](./stack-queue-pseudo/stack_queue_pseudo/stack_queue_peseudo.py)|
-
+|trees|[trees](./trees/trees/trees.py)|
+|Insertion Sort|[Insertion Sort](./Insertion-Sort/README.md)|
 
 
 ================================
