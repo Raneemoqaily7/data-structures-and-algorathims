@@ -11,5 +11,5 @@ def InsertionSort(array):
 
 
 if __name__ == "__main__":
-    array =[0]
+    array =[8,4,23,42,16,15]
     print (InsertionSort(array))
