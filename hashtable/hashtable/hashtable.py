@@ -16,14 +16,30 @@ class HashTable :
             sum_of_ascii+=char_ascii
 
         hashed_key = sum_of_ascii   % self.size
+        
 
         return hashed_key
 
 
-    def add (self , k ,value ):
+    def set (self , k ,value ):
         hashed_key = self.hash(k)
-        added = self.map[hashed_key] =value
-        return added
+
+        sum_of_ascii = 0
+        for ch in hashed_key:
+            sum_of_ascii += ord(ch)
+        if not self.map[hashed_key ]:
+            self.map[hashed_key ] = [(hashed_key , value)]
+
+        else :
+            self.map[hashed_key ].append((hashed_key , value))
+     
+
+
+
+
+
+
+
 
 
     def get (self ,k ):
@@ -37,11 +53,18 @@ class HashTable :
 
     def contains(self ,k):
         hashed_key = self.hash(k)
-        for i in range (self.size):
-            if i == hashed_key :
+        if self.map[hashed_key ]:
+            
                 return True
-            else :
+        else :
                 return False
+
+    def keys (self):
+        output = []
+        for input in self.map:
+            if input: [output.append(pair[0]) for pair in input]
+                
+        return output
 
 
 
