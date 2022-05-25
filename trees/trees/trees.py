@@ -5,10 +5,10 @@ class QNode:
 
 class Queue:
     def __init__(self):
-        self.front =None
+        self.front =None   #  1 --> 2  
         self.rear =None 
 
-    def enqueue(self ,new_value):
+    def enqueue(self ,new_value):#
         """
         enqueue function takes new value as argument 
         and add node with the new value to the rear of the queue 
