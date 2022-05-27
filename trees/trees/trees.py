@@ -285,7 +285,7 @@ class BinarySearchTree(BinaryTree):
 
             if value > current.value:
                 current = current.right
-
+            
         return False
 
 
