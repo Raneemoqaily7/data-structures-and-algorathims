@@ -1,2 +1,2 @@
-def tree_intersection(self):
+def tre_intersection(self):
     pass
