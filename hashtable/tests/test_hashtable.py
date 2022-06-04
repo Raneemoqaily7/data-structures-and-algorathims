@@ -30,10 +30,12 @@ def test_contains():
 
 def test_collision_case():
     hashTable =HashTable()
+    hashTable.set("Owner" ,"John")
+
     hashTable.set("Dog" , "Jessi")
     hashTable.set("goD" , "Yes")
     actual = hashTable.map 
-    expected = [None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, [{'Dog': 'Jessi'}, ['goD', 'Yes']], None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None]
+    expected = [None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, [{'Owner': 'John'}], None, None, None, None, None, None, None, None, [{'Dog': 'Jessi'}, {'goD': 'Yes'}], None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None]
     assert actual == expected
 
 def test_hash ():
@@ -49,7 +51,19 @@ def test_value_bucket_collision():
     hashTable.set("Dog" , "Jessi")
     hashTable.set("goD" , "Yes")
     actual =hashTable.get("Dog")
-    expected =[{'Dog': 'Jessi'}, ['goD', 'Yes']]
+    expected =[{'Dog': 'Jessi'}, {'goD': 'Yes'}]
+    assert actual == expected
+
+
+
+def test_keys():
+    hashTable =HashTable()
+    hashTable.set("Owner" ,"John")
+
+    hashTable.set("Dog" , "Jessi")
+    hashTable.set("goD" , "Yes")
+    actual =hashTable.keys()
+    expected =['Owner', 'Dog', 'goD']
     assert actual == expected
 
 

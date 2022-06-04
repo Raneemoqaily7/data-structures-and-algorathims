@@ -32,7 +32,7 @@ class HashTable (object) :
         if not self.map[idx]:
             self.map[idx] =[{k: value}]
         else :
-            self.map[idx].append([k,value])
+            self.map[idx].append({k:value})
         return self.map
 
 
@@ -68,15 +68,20 @@ class HashTable (object) :
 
        
     def keys (self):
+      
         """
-        Returns: Collection of keys
+        keys(self): a method that returns the collection of keys.
         """
-        for i in range (len(self.map) ):
-            if self.map[i]:
+        keys = []
+        for index in self.map :
+            if index:
+                for dic in index:
+                        [keys.append(key) for key in dic.keys()]
                         
-                new_list =self.map
-                new_val = set( new_v for new_dic in new_list for new_v in new_dic.values())
-                return new_val
+        return keys
+
+                
+                
 
         
        
@@ -103,7 +108,7 @@ if __name__=="__main__":
     # print(hashtable.get("Dog"))
     # print(hashtable.contains("Owner"))
     # print(hashtable.contains("name"))
-    # print (hashtable.map)
+    print (hashtable.map)
     # hashtable.delete("Dog")
     # print(hashtable.contains("Owner"))
     # print (hashtable.hash("Dog"))
