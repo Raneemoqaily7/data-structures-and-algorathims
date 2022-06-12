@@ -1,5 +1,4 @@
 
-
 class Vertex:
   
     def __init__(self, value):
@@ -32,7 +31,10 @@ class Graph:
         Returns all of the nodes in the graph as a collection (set, list, or similar)
         '''
 
-        return self._adjacency_list.keys()
+        nodes = set()
+        for node in self.adjacency_list:
+            nodes.add(node)
+        return nodes
 
 
     
@@ -62,7 +64,7 @@ class Graph:
      
         output = ''
         for key in self.adjacency_list:
-            output += f'{key} -> {self.adjacency_list[key].edges}  ,    '
+            output += f'{key} -> {self.adjacency_list[key].edges} ,'
         return  output
     
 
@@ -71,6 +73,14 @@ class Graph:
 
     
     def add_edge(self, vertex1, vertex2, weight=None):
+
+        """ 
+            Arguments: 2 nodes to be connected by the edge, weight (optional)
+            Returns: nothing
+            Adds a new edge between two nodes in the graph
+            If specified, assign a weight to the edge
+            Both nodes should already be in the Graph
+        """
         
         if vertex1 not in self.adjacency_list:
             self.add_node(vertex1)
@@ -92,14 +102,16 @@ class Graph:
 if __name__ == '__main__':
     graph = Graph()
     graph.add_node(1)
-    graph.add_node(4)
-    graph.add_node(7)
-    graph.add_node(4)
-    graph.add_edge(1, 5)
-    graph.add_edge(1, 2)
-    graph.add_edge(4, 7)
-    graph.add_edge(7, 1)
+    graph.add_node(2)
+    graph.add_node(3)
+    
+    graph.add_edge(1, 2 ,5)
+    graph.add_edge(2, 3 ,6)
+    graph.add_edge(3, 1 ,4)
    
     print(graph)
+    
+
+
 
 
