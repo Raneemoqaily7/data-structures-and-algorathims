@@ -1,3 +1,5 @@
+
+
 class Vertex:
   
     def __init__(self, value):
@@ -6,75 +8,98 @@ class Vertex:
 
 
 class Graph:
-    def __init__(self, vertices):
-        self.V = vertices
-        self.graph = [[0 for column in range(vertices)]
-                      for row in range(vertices)]
+    def __init__(self):
+        self.adjacency_list = {}
 
 
     def add_node(self, value):
-
-
         '''
         Arguments: value
         Returns: The added node
-        Add a node to the graph
-        '''
-        new_node = Vertex(value)
-        return new_node
-
-        
-
-
-    def add_edge(self, node1, node2, *wieght):
-        '''
-        Arguments: 2 nodes to be connected by the edge, weight (optional)
-        Returns: nothing
-        Adds a new edge between two nodes in the graph
-        If specified, assign a weight to the edge
-        Both nodes should already be in the Graph
-        '''
-        if len(wieght) == 0:
-            self.graph[node1][node2] = 1
-            self.graph[node2][node1] = 1
+        Add a node to the grap
+                '''
+        new_vertex = Vertex(value)
+        self.adjacency_list[value] = new_vertex
+        return new_vertex
 
 
 
-
-
+ 
     def get_nodes(self):
+        
         '''
         Arguments: none
         Returns all of the nodes in the graph as a collection (set, list, or similar)
         '''
-        nodes = set()
-        for i in range(self.V):
-            nodes.add(self.graph[i])
-        return nodes
+
+        return self._adjacency_list.keys()
+
+
+    
+    def get_neighbors(self, vertex):
+        '''
+        Arguments: node
+        Returns a collection of edges connected to the given node
+        Include the weight of the connection in the returned collection
+        '''
+        return self.adjacency_list[vertex].edges
+
+
+    def size(self):
+
+
+        '''
+       Arguments: none
+        Returns the total number of nodes in the graph
+        '''
+        return len(self.adjacency_list)
+
 
     
 
     def __str__(self):
+       
+     
         output = ''
-        for i in range(self.V):
-            output += f'{self.graph[i]} \n'
-        return output
+        for key in self.adjacency_list:
+            output += f'{key} -> {self.adjacency_list[key].edges}  ,    '
+        return  output
+    
+
 
 
 
     
+    def add_edge(self, vertex1, vertex2, weight=None):
+        
+        if vertex1 not in self.adjacency_list:
+            self.add_node(vertex1)
+        if vertex2 not in self.adjacency_list:
+            self.add_node(vertex2)
+        if weight is None:
+            self.adjacency_list[vertex1].edges.append(vertex2)
+            self.adjacency_list[vertex2].edges.append(vertex1)
+        else:
+            self.adjacency_list[vertex1].edges.append((vertex2, weight))
+            self.adjacency_list[vertex2].edges.append((vertex1, weight))
+
+
+
+
+
+
 
 if __name__ == '__main__':
-    graph = Graph(4)
+    graph = Graph()
     graph.add_node(1)
-    graph.add_node(0)
-    graph.add_node(3)
-    graph.add_node(2)
-    graph.add_edge(1, 0)
-    graph.add_edge(2, 0)
-    graph.add_edge(0, 2)
-    graph.add_edge(1, 0)
-    graph.add_edge(3, 2)
-    graph.add_edge(3, 2)
-    print(graph)
+    graph.add_node(4)
+    graph.add_node(7)
+    graph.add_node(4)
+    graph.add_edge(1, 5)
+    graph.add_edge(1, 2)
+    graph.add_edge(4, 7)
+    graph.add_edge(7, 1)
    
+    print(graph)
+
+
