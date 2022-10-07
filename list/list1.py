@@ -243,14 +243,98 @@
 # Using title function of string
 
 # initializing string
-test_str = "geeks for geeks"
+# test_str = "geeks for geeks"
 
-# printing original string
-print("The original string is : " + str(test_str))
+# # printing original string
+# print("The original string is : " + str(test_str))
 
-# Using str.title()
-# Initial character upper case
-res = test_str[0].upper() + test_str[1:]
+# # Using str.title()
+# # Initial character upper case
+# res = test_str[0].upper() + test_str[1:]
 
-# printing result
-print("The string after uppercasing initial character : " + str(res))
+# # printing result
+# print("The string after uppercasing initial character : " + str(res))
+
+
+################################################################
+# write  a function to remove empty string from list of strings 
+## input = ["hello" , "" , "bye"]
+## output = ["hello" , "bye"]
+
+# def filterdData (list1):
+# first way using append to a list 
+#     l2 = []
+#     for i in range (len(list1)) : 
+#         if list1[i] != "":
+#             l2.append (list1[i] )
+#     return l2
+
+# print (filterdData([2 , "" , 1]))
+
+
+
+# 2nd way using filter
+#     return  list (filter (None , list1))
+
+# print (filterdData ([2 , "" , 1 , "" , "kkkkk" , 6]))
+
+
+#######################
+#extend list and append 
+
+# list1= [ "a" , "b" , ["c" ,["d" , "e" ,["f" , "g"] ,"k"],"l"] ,"m" , "n"]
+# list1[2][1][2].extend(["h" ,"i" , "j"])
+
+# print (list1)
+
+# #output === >  ['a', 'b', ['c', ['d', 'e', ['f', 'g', 'h', 'i', 'j'], 'k'], 'l'], 'm', 'n']
+
+# list2= [ "a" , "b" , ["c" ,["d" , "e" ,["f" , "g"] ,"k"],"l"] ,"m" , "n"]
+# list2[2][1][2].append(["h" ,"i" , "j"])
+# print (list2)
+
+#output === >  ['a', 'b', ['c', ['d', 'e', ['f', 'g', ['h', 'i', 'j']], 'k'], 'l'], 'm', 'n']
+
+
+
+
+# def extend (l1 , sl):
+#      l1.extend (sl)
+#      return l1
+
+# print ( extend ([1,2,3]  , [4,5]))
+
+################################################################3
+# write a fnction to check if a value is present and replace it with a nother given value 
+# def found (l1 ,n ,m ):
+#     for i in l1:
+#         if n in l1:
+#             index = l1.index(n)
+#             l1[index] = m 
+        
+        
+            
+
+#             return (l1) 
+#         return("value not exist" )
+
+
+# print (found( [ 1 ,2 ,3,4 , 4] , 4 ,20) )
+
+
+##############################
+# write a program to remove all occurence of a specific item 
+
+#input = [5,6,7,20,7,8,20,6,9] , 20
+# output = [5,6,7,7,8,6,9]
+
+def filterData (l1 , n ) :
+    res =[]
+    for i in range (len(l1)):
+        if l1[i] !=n:
+            res.append(l1[i])
+
+    return res
+
+print (filterData([5,6,7,20,7,8,20,6,9] , 20))
+   
