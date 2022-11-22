@@ -328,13 +328,164 @@
 #input = [5,6,7,20,7,8,20,6,9] , 20
 # output = [5,6,7,7,8,6,9]
 
-def filterData (l1 , n ) :
-    res =[]
-    for i in range (len(l1)):
-        if l1[i] !=n:
-            res.append(l1[i])
+# def filterData (l1 , n ) :
+#     res =[]
+#     for i in range (len(l1)):
+#         if l1[i] !=n:
+#             res.append(l1[i])
 
-    return res
+#     return res
 
-print (filterData([5,6,7,20,7,8,20,6,9] , 20))
+# print (filterData([5,6,7,20,7,8,20,6,9] , 20))
+
+
+
+######################################################
+# Given an array of integers nums and an integer target,
+#  return indices of the two numbers such that they add up to target.
+
+
+# def sum (list1 , target):
+#     for i in range (len (list1)):
+#         k = i+1
+#         for j in range (k,len(list1)):
+#             if list1[i] + list1[j] == target :
+#                 res = [i , j]
+#     return res 
+
+# print (sum ( [3,6,9] , 12))
+                
+##########################################################################################
+# list1 = [0,0,0,1,1,1,2,3,4]
+
+
+
+
+# def duplicated (parts) :
    
+#     sen = ""
+#     for part in parts :
+#         if part.next() == "," :
+#          sen += part
+#     # sen = " ".join(parts)
+          
+                
+#     return f"{sen}."
+
+
+# print(duplicated(["Hello" , "," ,"my" , "world"]))
+# def max (list1):
+#     max = 0
+#     for i in list1:
+#         if i > max :
+#             max = i
+#     return max
+# print (max([1,2,5,3,4]))
+
+# def min (l1):
+#     min = l1[0]
+#     for i in l1:
+#         if i < min :
+#             min = i
+#     return min 
+# print (min ([5,2,0,3,4]))
+
+# def shulfed(list1):
+
+#Solution1 
+    # list1.sort()
+    # sum = 0
+    # for i in list1:
+    #     sum +=i
+    # if len (list1)== 0:
+    #     missing =1
+    # total = (list1[-1] * (list1[-1] +1)) /2
+    # missing = total - sum 
+    # if missing ==0 :
+    #     return list1[-1] +1
+
+    # return missing
+
+
+
+
+
+    
+
+#Solution2 
+    # min = list1[0]
+    # for i in range(len(list1 )):
+    #         if list1[i] < min :
+    #             min = list1[i]
+    
+
+
+    # if min != 1 :
+    #     return 1
+    
+    # if len(list1) == 0:
+    #     return 1
+
+    # for _ in list1:
+        
+        
+
+    #     if min in list1  :
+          
+    #         min +=1  
+            
+            
+        
+        
+    # return min
+
+ 
+
+#Solution 3 
+#     max = 0
+#     for i in l1:
+#         if i > max :
+#             max = i
+#     missing =max +1
+
+#     min = l1[0]
+#     for i in l1:
+#         if i < min :
+#             min = i
+
+
+#     for _ in l1 :
+#         if max in l1  :
+
+#             max = max-1
+#         if   max ==  min :
+#             max = missing
+#         if min !=1 :
+#             return 1
+
+        
+        
+        
+#     return max
+
+# print (shulfed([5,4,3,2,1]))
+
+
+
+# #Solution 4
+#     n = len (list1)+1 
+#     return (n * (n+1)) //2  - sum(list1)
+
+
+# print (shulfed([1,3,4]))  
+
+
+
+
+def split_integer(num, parts):
+    quotient, remainder = divmod(num, parts)
+    lower_elements = [quotient for i in range(parts - remainder)]
+    higher_elements = [quotient + 1 for j in range(remainder)]
+    return lower_elements + higher_elements
+
+print (split_integer(21,6))
