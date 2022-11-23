@@ -536,3 +536,44 @@
 # print (accum("abcD"))
 
 ##########################################################################################
+
+
+#adding arrays of letters 
+#write a function that takes an array of letters and combine them into words in a sentence 
+import numpy as np
+
+def add_Arr (list1) :
+    # r =""
+    # k=0
+    
+    # for i in range(len(list1)):
+    #     for j in list1[i]:
+        
+        
+        
+    #       r+=j
+         
+    # print (r)
+    
+    
+
+    trans_arr= np.transpose(list1)
+    list1 = trans_arr.tolist()
+
+    lis = list1[0]
+    def listToString(lis):
+        string = ""
+        for i in range (len(list1)):
+            lis = list1[i]
+            for ele in lis:
+                string += ele
+        
+        return string
+
+    print(listToString(lis))
+    return
+            
+
+       
+    
+print (add_Arr([["j" ,"l" ,"l" ,"m"] , ["u" ,"d" ,"i" ,"a"] ,["s" ,"v" ,"f" ,"n"] ,["t", "l" ,"e" ,"p"]])) 
