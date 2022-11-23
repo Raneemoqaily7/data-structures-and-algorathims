@@ -482,10 +482,57 @@
 
 
 
-def split_integer(num, parts):
-    quotient, remainder = divmod(num, parts)
-    lower_elements = [quotient for i in range(parts - remainder)]
-    higher_elements = [quotient + 1 for j in range(remainder)]
-    return lower_elements + higher_elements
+# def split_integer(num, parts):
+#     quotient, remainder = divmod(num, parts)
+#     lower_elements = [quotient for i in range(parts - remainder)]
+#     higher_elements = [quotient + 1 for j in range(remainder)]
+#     return lower_elements + higher_elements
 
-print (split_integer(21,6))
+# print (split_integer(21,6))
+
+
+#############################################################################################
+# write a function which will create a stringfrom a list of strings , seperated by space 
+# example : ["hello" , " world"] ----> "hello world"
+
+
+# def words_to_sentence (words):
+#     return "".join (words)
+
+# print (words_to_sentence (["hello" , " world"]))
+
+
+
+#################################################################################################
+# write a function to give this pattern of output 
+
+# example :
+#(abcd) -- > (ABbCccDddd)
+#(rsftgj) --> (RSsFffTtttGggggJjjjjj)
+
+
+
+
+# def accum(string):
+
+#Solution 1
+    # l=""
+    # k=0
+    # for i in range(len(string)) :
+       
+        
+    #         l +=string[i].upper() + string[i].lower()*k 
+            
+    #         k+=1
+    #         if i != len(string)-1 :
+    #             l+="-"
+            
+    # return l
+
+#Soution 2
+
+    # R = "-".join(c.upper()+c.lower()*i for i,c in enumerate(string)) 
+    # return R
+# print (accum("abcD"))
+
+##########################################################################################
