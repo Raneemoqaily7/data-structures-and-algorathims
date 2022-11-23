@@ -541,19 +541,75 @@
 #adding arrays of letters 
 #write a function that takes an array of letters and combine them into words in a sentence 
 
-def add_Arr (list1) :
-    r=""
-    z =len(list1[0])
-    for i in range (z) :
+# def add_Arr (list1) :
+#     r=""
+#     z =len(list1[0])
+#     for i in range (z) :
             
-            for j in list1:
+#             for j in list1:
         
                  
-                r+=j[i]
-            if i < (len(j) -1) :
-             r+= " " 
-    return r
+#                 r+=j[i]
+#             if i < (len(j) -1) :
+#              r+= " " 
+#     return r
   
        
     
-print (add_Arr([["j" ,"l" ,"l" ,"m","","s" ,"l" ,"l" ,"k" ,"l"] , ["u" ,"d" ,"i" ,"a","k","k" ,"l" ,"l" ,"k" ,"l"] ,["s" ,"v" ,"f" ,"n","f","k" ,"l" ,"l" ,"k" ,"l"] ,["t", "l" ,"e" ,"k" ,"l" ,"l" ,"k" ,"l","","p"] , ["a" ,"b" ,"c" ,"d" ,"" ,"k" ,"l" ,"l" ,"k" ,"l"],["f" , "" ,"g" ,"k" ,"u" ,"k" ,"l" ,"l" ,"k" ,"l"]])) 
+# print (add_Arr([["j" ,"l" ,"l" ,"m","","s" ,"l" ,"l" ,"k" ,"l"] , ["u" ,"d" ,"i" ,"a","k","k" ,"l" ,"l" ,"k" ,"l"] ,["s" ,"v" ,"f" ,"n","f","k" ,"l" ,"l" ,"k" ,"l"] ,["t", "l" ,"e" ,"k" ,"l" ,"l" ,"k" ,"l","","p"] , ["a" ,"b" ,"c" ,"d" ,"" ,"k" ,"l" ,"l" ,"k" ,"l"],["f" , "" ,"g" ,"k" ,"u" ,"k" ,"l" ,"l" ,"k" ,"l"]])) 
+
+# Last Survivor 
+# given a string  of letters and list of mumbers , the numbers indecates position of letters that must be removed 
+# in order , starting from the begggining of the array
+#  example :
+# str = "zbl" , arr = [0,1]  ---output ---> "b" 
+
+
+def last_survivor (letters , list1):
+
+    # --------->str = " ".join (letters)
+    # ----------> r = str.split()
+    # the join and split same as using :
+    letters=list(letters)
+    for i in list1:
+        for j in range (len(letters)):
+            if i == j :
+                letters.pop(j)
+    letters = "".join (letters)
+                
+    return letters
+
+
+
+  
+print (last_survivor("zbl"  , [0,1]))
+
+
+
+
+
+
+
+
+# def reverse (s):
+
+#     str =""
+#     r = s.split()
+
+# #   r = ["hello" , "world"]
+ 
+#     for i in r :
+#         for j in range(1,len(i)):
+
+#             str +=i[-j]
+#         str+=i[0]
+#         str+=" "
+            
+#     return  str
+    
+        
+        
+        
+        
+
+# print (reverse ("hello world"))
