@@ -565,30 +565,30 @@
 # str = "zbl" , arr = [0,1]  ---output ---> "b" 
 
 
-def last_survivor (letters , list1):
+# def last_survivor (letters , list1):
 
     # --------->str = " ".join (letters)
     # ----------> r = str.split()
     # the join and split same as using :
-    letters=list(letters)
-    for i in list1:
-        for j in range (len(letters)):
-            if i == j :
-                letters.pop(j)
-    letters = "".join (letters)
+#     letters=list(letters)
+#     for i in list1:
+#         for j in range (len(letters)):
+#             if i == j :
+#                 letters.pop(j)
+#     letters = "".join (letters)
                 
-    return letters
+#     return letters
 
 
 
   
-print (last_survivor("zbl"  , [0,1]))
+# print (last_survivor("zbl"  , [0,1]))
 
 
 
 
 
-
+##################################################################################################
 
 
 # def reverse (s):
@@ -609,7 +609,25 @@ print (last_survivor("zbl"  , [0,1]))
     
         
         
-        
+# shout = reverse        
         
 
-# print (reverse ("hello world"))
+# print (shout  ("hello world"))
+
+
+
+
+##################################################################
+# def average (list1):
+#     sum = 0
+#     for i in list1 :
+#         sum +=i
+#     average = sum / len (list1)
+#     return average 
+# print (average([1,2,3,4,5,6]))
+
+
+
+###############################################################
+
+
