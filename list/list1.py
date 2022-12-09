@@ -631,3 +631,19 @@
 ###############################################################
 
 
+#convert a number to reversed array of digits 
+# 12345 --- > [5,4,3,2,1]
+
+def reversed (n):
+    list1 = []
+    n = str (n)
+    n = ",".join(n)
+    n =[int(i) for i in n if i !=","]
+    temp = n[0]
+    n = [n[-i]  for i in range (1,len(n))]
+    n.append (temp)
+    
+    return n
+    
+
+print (reversed(12345))
