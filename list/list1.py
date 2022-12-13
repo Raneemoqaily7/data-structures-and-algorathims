@@ -482,10 +482,50 @@
 
 
 
-def split_integer(num, parts):
-    quotient, remainder = divmod(num, parts)
-    lower_elements = [quotient for i in range(parts - remainder)]
-    higher_elements = [quotient + 1 for j in range(remainder)]
-    return lower_elements + higher_elements
+# def split_integer(num, parts):
+#     quotient, remainder = divmod(num, parts)
+#     lower_elements = [quotient for i in range(parts - remainder)]
+#     higher_elements = [quotient + 1 for j in range(remainder)]
+#     return lower_elements + higher_elements
 
-print (split_integer(21,6))
+# print (split_integer(21,6))
+
+
+
+#######################################################################################
+# def sum_mix(arr):
+#     sum =0
+#     for i in arr :
+#         sum +=int(i)
+#     return sum 
+
+
+# print (sum_mix([1,2,3,"t"]))
+
+
+########################################################################################
+
+
+
+
+#wrie a function to find the Prime Numbers from 1 to 100 in Python
+
+def prime (n , m):
+    list1=[]
+    
+    for i in range (n , m+1):
+      if i >1:
+        for j in range (2,i):
+            if i % j == 0:
+              list1.append(i)
+              
+              
+            
+    list1 = [i for i in range (n ,m+1) if i not in list1]
+    return list1
+    
+
+print(prime (1,100))
+#1,2,3,4,5,6,7,8,9,10
+# 1,2,3,5,7
+
